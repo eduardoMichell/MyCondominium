@@ -1,0 +1,35 @@
+<mat-card>
+  <mat-card-title>Update People</mat-card-title>
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="Name" [(ngModel)]="people.name" name="name" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Block</mat-label>
+      <mat-select [(value)]="people.block">
+        <mat-option *ngFor="let block of blocks" [value]="block.name">
+          {{block.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Ap</mat-label>
+      <mat-select [(value)]="people.ap">
+        <mat-option *ngFor="let ap of aps" [value]="ap.number">
+          {{ap.number}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+
+  <button mat-raised-button (click)="updatePeople()" color="primary">
+    Update People
+  </button>
+
+  <button mat-raised-button (click)="cancel()" >
+    Cancel
+  </button>
+</mat-card>
+

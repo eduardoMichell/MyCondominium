@@ -1,0 +1,35 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="blocks" class="full-width-table" >
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    </ng-container>
+
+    <!-- Poples Column -->
+    <ng-container matColumnDef="peoples">
+      <th mat-header-cell *matHeaderCellDef>Peoples</th>
+      <td mat-cell *matCellDef="let row">{{row.peoples}}</td>
+    </ng-container>
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let row">
+        <a routerLink="/blocks/update/{{row._id}}" class="edit">
+          <i class="material-icons">
+            edit
+          </i>
+        </a>
+        <a routerLink="/blocks/delete/{{row._id}}" class="delete">
+          <i class="material-icons">
+            delete
+          </i>
+        </a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

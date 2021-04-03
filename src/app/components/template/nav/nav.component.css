@@ -1,0 +1,17 @@
+.sidenav {
+  background-color: #970b8f;
+  width: 150px;
+}
+
+.sidenav a{
+  color: #ffffff;
+}
+
+.sidenav i{
+  padding-right: 5px;
+}
+
+.content {
+  padding: 16px;
+  background-color: white;
+}

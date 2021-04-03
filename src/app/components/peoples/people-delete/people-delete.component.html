@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-title>New People</mat-card-title>
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="Name" [(ngModel)]="people.name" name="name" disabled>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Block" [(ngModel)]="people.block" name="block" disabled>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Ap" [(ngModel)]="people.ap" name="ap" disabled>
+    </mat-form-field>
+  </form>
+
+  <button mat-raised-button (click)="deletePeople()" color="primary">
+    Delete People
+  </button>
+
+  <button mat-raised-button (click)="cancel()" >
+    Cancel
+  </button>
+</mat-card>
+
