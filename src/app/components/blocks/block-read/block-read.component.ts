@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Block} from "../block.model";
-import {BlockService} from "../block.service";
+import {Block} from '../block.model';
+import {BlockService} from '../block.service';
 
 @Component({
   selector: 'app-block-read',
@@ -9,15 +9,15 @@ import {BlockService} from "../block.service";
 })
 export class BlockReadComponent implements OnInit {
 
-  blocks: Block[]
-  displayedColumns= ['name', 'peoples', 'action']
+  blocks: Block[];
+  displayedColumns = ['name', 'peoples', 'action'];
 
   constructor(private blockService: BlockService) { }
 
   ngOnInit() {
     this.blockService.read().subscribe(blocks => {
-      this.blocks = blocks
-    })
+      this.blocks = blocks;
+    });
   }
 
 }

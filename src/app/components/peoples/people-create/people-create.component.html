@@ -8,7 +8,7 @@
       <mat-form-field>
         <mat-label>Block</mat-label>
         <mat-select [(value)]="people.block">
-          <mat-option *ngFor="let block of blocks" [value]="block.name">
+          <mat-option *ngFor="let block of blocks" [value]="{_id: block._id, name: block.name}">
             {{block.name}}
           </mat-option>
         </mat-select>
@@ -17,8 +17,8 @@
       <mat-form-field>
         <mat-label>Ap</mat-label>
         <mat-select [(value)]="people.ap">
-          <mat-option *ngFor="let ap of aps" [value]="ap.number">
-            {{ap.number}}
+          <mat-option *ngFor="let ap of aps" [value]="ap">
+            {{ap}}
           </mat-option>
         </mat-select>
       </mat-form-field>

@@ -7,8 +7,8 @@
 
     <mat-form-field>
       <mat-label>Block</mat-label>
-      <mat-select [(value)]="people.block">
-        <mat-option *ngFor="let block of blocks" [value]="block.name">
+      <mat-select [(value)]="people.newBlock">
+        <mat-option *ngFor="let block of blocks" [value]="block._id">
           {{block.name}}
         </mat-option>
       </mat-select>

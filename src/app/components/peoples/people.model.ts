@@ -1,9 +1,9 @@
-import {Block} from "../blocks/block.model";
+import {Block} from '../blocks/block.model';
 
 export interface People {
-  id?: number
-  name: string
-  block: Block
-  ap: number
+  _id?: string;
+  name: string;
+  block: Block;
+  ap: string;
 
 }

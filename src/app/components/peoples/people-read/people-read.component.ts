@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Block} from "../../blocks/block.model";
-import {People} from "../people.model";
-import {PeopleService} from "../people.service";
+import {PeopleService} from '../people.service';
+import {BlockService} from '../../blocks/block.service';
+import {People} from '../people.model';
 
 @Component({
   selector: 'app-people-read',
@@ -9,15 +9,17 @@ import {PeopleService} from "../people.service";
   styleUrls: ['./people-read.component.css']
 })
 export class PeopleReadComponent implements OnInit {
-  peoples: People[]
-  displayedColumns= ['id', 'name', 'block', 'ap', 'action']
+  displayedColumns = ['name', 'block', 'ap', 'action'];
+  peoples: People[];
 
-  constructor(private peopleService: PeopleService) { }
+  constructor(private peopleService: PeopleService,
+              private blockService: BlockService) { }
 
   ngOnInit() {
-    this.peopleService.read().subscribe(peoples => {
-      this.peoples = peoples
-    })
+    this.peopleService.read().subscribe(async peoples => {
+      this.peoples = peoples;
+    });
   }
+
 
 }
