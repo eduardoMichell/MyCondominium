@@ -7,16 +7,17 @@
 
     <mat-form-field>
       <mat-label>Block</mat-label>
-      <mat-select [(value)]="people.newBlock">
-        <mat-option *ngFor="let block of blocks" [value]="block._id">
+      <mat-select [(value)]="people.block" required>
+         <mat-option *ngFor="let block of blocks" [value]="block._id">
           {{block.name}}
         </mat-option>
+
       </mat-select>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Ap</mat-label>
-      <mat-select [(value)]="people.ap">
+      <mat-select [(value)]="people.ap" required>
         <mat-option *ngFor="let ap of aps" [value]="ap.number">
           {{ap.number}}
         </mat-option>

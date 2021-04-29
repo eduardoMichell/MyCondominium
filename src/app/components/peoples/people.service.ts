@@ -49,9 +49,15 @@ export class PeopleService {
     const url = `${this.baseUrl}/${people._id}`;
     return this.http.put<People>(url, people);
   }
+  updatePeople(people): Observable<People> {
+    const url = `${this.baseUrl}/updatePeople/${people._id}`;
+    return this.http.put<People>(url, people);
+  }
 
   delete(id: string): Observable<People> {
     const url = `${this.baseUrl}/${id}`;
     return this.http.delete<People>(url);
   }
+
+
 }

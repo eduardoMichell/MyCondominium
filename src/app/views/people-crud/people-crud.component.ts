@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
-import {HeaderService} from "../../components/template/header/header.service";
+﻿import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import {HeaderService} from '../../components/template/header/header.service';
 
 @Component({
   selector: 'app-people-crud',
@@ -15,14 +15,14 @@ export class PeopleCrudComponent implements OnInit {
       title: 'People Crud',
       icon: 'person',
       routeUrl: '/people'
-    }
+    };
   }
 
   ngOnInit() {
   }
 
-  navigateToPeopleCreate(){
-    this.router.navigate(['/peoples/create'])
+  navigateToPeopleCreate() {
+    this.router.navigate(['/peoples/create']);
   }
 }
 

@@ -18,7 +18,34 @@ export class PeopleReadComponent implements OnInit {
   ngOnInit() {
     this.peopleService.read().subscribe(async peoples => {
       this.peoples = peoples;
+      this.getBlocks(this.peoples);
+      this.getAps(this.peoples);
     });
+  }
+
+  async getBlocks(people) {
+    let blocks;
+    for (let i = 0; i < people.length; i++) {
+      if (people[i].block === null) {
+        blocks = 'No Block';
+        people[i].block = blocks;
+      } else {
+        await this.blockService.readById(people[i].block).subscribe(block => {
+          blocks = block.name;
+          people[i].block = blocks;
+        });
+      }
+    }
+  }
+
+  async getAps(people) {
+    let aps;
+    for (let i = 0; i < people.length; i++) {
+      if (people[i].ap === null) {
+        aps = 'No Ap';
+        people[i].ap = aps;
+      }
+    }
   }
 
 

@@ -1,5 +1,5 @@
 <div class="mat-elevation-z8">
-  <table mat-table [dataSource]="blocks" class="full-width-table" >
+  <table mat-table [dataSource]="display" class="full-width-table" >
     <!-- Name Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>
@@ -9,7 +9,7 @@
     <!-- Poples Column -->
     <ng-container matColumnDef="peoples">
       <th mat-header-cell *matHeaderCellDef>Peoples</th>
-      <td mat-cell *matCellDef="let row">{{row.peoples}}</td>
+      <td mat-cell *matCellDef="let row">{{row.peoples.length}}</td>
     </ng-container>
 
     <!-- Action Column -->

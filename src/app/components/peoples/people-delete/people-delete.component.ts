@@ -11,7 +11,12 @@ import {Block} from '../../blocks/block.model';
   styleUrls: ['./people-delete.component.css']
 })
 export class PeopleDeleteComponent implements OnInit {
-  people: People;
+  people = {
+    _id: null,
+    name: null,
+    ap: null,
+    block: null
+  };
   block: Block;
   constructor(private peopleService: PeopleService,
               private router: Router,
@@ -21,7 +26,12 @@ export class PeopleDeleteComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     this.peopleService.readById(id).subscribe(people => {
-      this.people = people;
+      this.people = {
+        _id: people._id,
+        name: people.name,
+        ap: people.ap,
+        block: people.block
+      };
       this.blockService.readById(this.people.block.toString()).subscribe(block => {
         this.block = block;
       });
@@ -29,6 +39,11 @@ export class PeopleDeleteComponent implements OnInit {
   }
 
   deletePeople(): void {
+    this.blockService.readById(this.people.block).subscribe(async block => {
+      const idx = block.peoples.indexOf(this.people._id);
+      block.peoples.splice(idx, 1);
+      await this.blockService.update(block).subscribe(response => {});
+    });
     this.peopleService.delete(this.people._id).subscribe(() => {
       this.peopleService.showMessage('Successful People Deleted');
       this.router.navigate(['/peoples']);
